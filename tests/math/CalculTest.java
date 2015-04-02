@@ -26,6 +26,10 @@ public class CalculTest {
 		long result1 = this.calcul.addition(1, 1);
 		
 		assertEquals(2, result1);
+		
+		long result2 = this.calcul.addition(Long.MAX_VALUE, 1);
+		
+		assertEquals(result2, -1);
 	}
 	
 	@Test
@@ -42,6 +46,14 @@ public class CalculTest {
 		long result1 = this.calcul.multiplication(25, 4);
 		
 		assertEquals(result1, 100);
+		
+		long result2 = this.calcul.multiplication(Long.MAX_VALUE, 25);
+		
+		assertEquals(result2, -1);
+		
+		long result3 = this.calcul.multiplication(5000000, Long.MAX_VALUE);
+		
+		assertEquals(result3, -1);
 	}
 	
 	@Test
@@ -75,5 +87,6 @@ public class CalculTest {
 		// Test if return value equals to -1 to indication there is a problem
 		assertEquals(result3, -1.0F, 0.0001);
 	}
+	
 
 }

@@ -16,7 +16,11 @@ public class Calcul {
 	 */
 	public long addition(long a, long b)
 	{
-		return a + b;
+		if (Long.MAX_VALUE == a || Long.MAX_VALUE == b){
+			return -1;
+		}else{
+			return a + b;
+		}
 	}
 	
 	/**
@@ -34,11 +38,15 @@ public class Calcul {
 	 * Multiplication of two numbers
 	 * @param a first number
 	 * @param b first number
-	 * @return
+	 * @return result of multiplication
 	 */
 	public long multiplication(long a, long b)
 	{
-		return a * b;
+		if ((Long.MAX_VALUE == a || Long.MAX_VALUE == b) && (a > 1 || b > 1)){
+			return -1;
+		}else{
+			return a * b;
+		}
 	}
 
 	/**
@@ -71,5 +79,20 @@ public class Calcul {
 		}else{
 			return -1;
 		}
+	}
+	
+	/**
+	 * Square Root of a number
+	 * @param a first number
+	 * @return
+	 */
+	public float racineCarre(long a)
+	{
+		if (a < 0){
+			return -1;			
+		}else{
+			return  0;	
+		}
+		
 	}
 }
