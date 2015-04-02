@@ -21,72 +21,97 @@ public class CalculTest {
 	}
 
 	@Test
-	public void testAddition() 
+	public void testAddition() throws Exception
 	{
-		long result1 = this.calcul.addition(1, 1);
-		
-		assertEquals(2, result1);
-		
-		long result2 = this.calcul.addition(Long.MAX_VALUE, 1);
-		
-		assertEquals(result2, -1);
+		boolean result2 = false;
+		try {
+			long result1 = this.calcul.addition(1, 1);
+			
+			assertEquals(2, result1);
+			
+			// Test if an exception is thrown
+			this.calcul.addition(Long.MAX_VALUE, 1);
+			
+			assertEquals(result2, -1);
+		} catch (Exception e) {
+			result2 = true;
+		}
+		assertTrue(result2);
 	}
 	
 	@Test
-	public void testSoustraction()
+	public void testSoustraction() throws Exception
 	{
-		long result1 = this.calcul.soustraction(25, 18);
-		
-		assertEquals(7, result1);
+		try {
+			long result1 = this.calcul.soustraction(25, 18);
+			
+			assertEquals(7, result1);
+		} catch (Exception e) {
+			
+		}
 	}
 	
 	@Test
-	public void testMultiplication()
+	public void testMultiplication() throws Exception
 	{
-		long result1 = this.calcul.multiplication(25, 4);
-		
-		assertEquals(result1, 100);
-		
-		long result2 = this.calcul.multiplication(Long.MAX_VALUE, 25);
-		
-		assertEquals(result2, -1);
-		
-		long result3 = this.calcul.multiplication(5000000, Long.MAX_VALUE);
-		
-		assertEquals(result3, -1);
+		boolean result3 = false;
+		try {
+			long result1 = this.calcul.multiplication(25, 4);
+			
+			assertEquals(result1, 100);
+			
+			long result2 = this.calcul.multiplication(Long.MAX_VALUE, 25);
+			
+			assertEquals(result2, -1);
+			
+			// Test if an exception is thrown
+			this.calcul.multiplication(5000000, Long.MAX_VALUE);
+			
+		} catch (Exception e) {
+			result3 = true;
+		}		
+		assertTrue(result3);
 	}
 	
 	@Test
-	public void testDivisionReturnQuotient()
+	public void testDivisionReturnQuotient() throws Exception
 	{
-		float result1 = this.calcul.divisionReturnQuotient(100.0F, 25.0F);
-		
-		assertEquals(result1, 4, 0.001);
-		
-		float result2 = this.calcul.divisionReturnQuotient(1.0F, 4.0F);
-		
-		assertEquals(result2, 0.25F, 0.0001);
-		
-		float result3 = this.calcul.divisionReturnQuotient(1.0F, 0);
-		// Test if return value equals to -1 to indication there is a problem
-		assertEquals(result3, -1.0F, 0.0001);
+		boolean result3 = false;
+		try {
+			float result1 = this.calcul.divisionRetourQuotient(100.0F, 25.0F);
+			
+			assertEquals(result1, 4, 0.001);
+			
+			float result2 = this.calcul.divisionRetourQuotient(1.0F, 4.0F);
+			
+			assertEquals(result2, 0.25F, 0.0001);
+			
+			// Test if an exception is thrown
+			this.calcul.divisionRetourQuotient(1.0F, 0);
+		} catch (Exception e) {
+			result3 = true;
+		}		
+		assertTrue(result3);
 	}
 	
 	@Test
-	public void testDivisionReturnRemainder()
+	public void testDivisionReturnRemainder() throws Exception
 	{
-		float result1 = this.calcul.divisionReturnRemainder(100.0F, 25.0F);
-		
-		assertEquals(result1, 0, 0.001);
-		
-		float result2 = this.calcul.divisionReturnRemainder(1.0F, 4.0F);
-		
-		assertEquals(result2, 1.0F, 0.0001);
-		
-		float result3 = this.calcul.divisionReturnRemainder(1.0F, 0);
-		// Test if return value equals to -1 to indication there is a problem
-		assertEquals(result3, -1.0F, 0.0001);
+		boolean result3 = false;
+		try {
+			float result1 = this.calcul.divisionRetourReste(100.0F, 25.0F);
+			
+			assertEquals(result1, 0, 0.001);
+			
+			float result2 = this.calcul.divisionRetourReste(1.0F, 4.0F);
+			
+			assertEquals(result2, 1.0F, 0.0001);
+			
+			// Test if an exception is thrown
+			this.calcul.divisionRetourReste(1.0F, 0);
+		} catch (Exception e) {
+			result3 = true;
+		}
+		assertTrue(result3);
 	}
-	
-
 }

@@ -14,10 +14,10 @@ public class Calcul {
 	 * @param b second number
 	 * @return result of addition
 	 */
-	public long addition(long a, long b)
+	public long addition(long a, long b) throws Exception
 	{
 		if (Long.MAX_VALUE == a || Long.MAX_VALUE == b){
-			return -1;
+			throw new Exception();
 		}else{
 			return a + b;
 		}
@@ -29,7 +29,7 @@ public class Calcul {
 	 * @param b second number
 	 * @return result of subtraction
 	 */
-	public long soustraction(long a, long b)
+	public long soustraction(long a, long b) throws Exception
 	{
 		return a - b;
 	}
@@ -40,10 +40,10 @@ public class Calcul {
 	 * @param b first number
 	 * @return result of multiplication
 	 */
-	public long multiplication(long a, long b)
+	public long multiplication(long a, long b) throws Exception
 	{
 		if ((Long.MAX_VALUE == a || Long.MAX_VALUE == b) && (a > 1 || b > 1)){
-			return -1;
+			throw new Exception();
 		}else{
 			return a * b;
 		}
@@ -55,13 +55,13 @@ public class Calcul {
 	 * @param b divisor number
 	 * @return quotient
 	 */
-	public float divisionReturnQuotient(float a, float b)
+	public float divisionRetourQuotient(float a, float b) throws Exception
 	{
 		// Test if b > 0 
 		if (b > 0.F){
 			return a / b;
 		}else{
-			return -1;
+			throw new Exception();
 		}
 	}
 	
@@ -71,28 +71,13 @@ public class Calcul {
 	 * @param b divisor number
 	 * @return quotient
 	 */
-	public float divisionReturnRemainder(float a, float b)
+	public float divisionRetourReste(float a, float b) throws Exception
 	{
 		// Test if b > 0 
 		if (b > 0.F){
 			return a % b;
 		}else{
-			return -1;
+			throw new Exception();
 		}
-	}
-	
-	/**
-	 * Square Root of a number
-	 * @param a first number
-	 * @return
-	 */
-	public float racineCarre(long a)
-	{
-		if (a < 0){
-			return -1;			
-		}else{
-			return  0;	
-		}
-		
 	}
 }
