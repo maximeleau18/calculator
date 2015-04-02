@@ -35,5 +35,45 @@ public class CalculTest {
 		
 		assertEquals(7, result1);
 	}
+	
+	@Test
+	public void testMultiplication()
+	{
+		long result1 = this.calcul.multiplication(25, 4);
+		
+		assertEquals(result1, 100);
+	}
+	
+	@Test
+	public void testDivisionReturnQuotient()
+	{
+		float result1 = this.calcul.divisionReturnQuotient(100.0F, 25.0F);
+		
+		assertEquals(result1, 4, 0.001);
+		
+		float result2 = this.calcul.divisionReturnQuotient(1.0F, 4.0F);
+		
+		assertEquals(result2, 0.25F, 0.0001);
+		
+		float result3 = this.calcul.divisionReturnQuotient(1.0F, 0);
+		// Test if return value equals to -1 to indication there is a problem
+		assertEquals(result3, -1.0F, 0.0001);
+	}
+	
+	@Test
+	public void testDivisionReturnRemainder()
+	{
+		float result1 = this.calcul.divisionReturnRemainder(100.0F, 25.0F);
+		
+		assertEquals(result1, 0, 0.001);
+		
+		float result2 = this.calcul.divisionReturnRemainder(1.0F, 4.0F);
+		
+		assertEquals(result2, 1.0F, 0.0001);
+		
+		float result3 = this.calcul.divisionReturnRemainder(1.0F, 0);
+		// Test if return value equals to -1 to indication there is a problem
+		assertEquals(result3, -1.0F, 0.0001);
+	}
 
 }
