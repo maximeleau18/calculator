@@ -12,6 +12,8 @@ public class Main {
 		int choice;
 		Calcul calcul = new Calcul();
 		boolean nextStep = true;
+		double a = 0.0D;
+		double b = 0.0D;
 		
 		do{
 			choice = displayMenu();
@@ -21,16 +23,14 @@ public class Main {
 		    
 			switch (choice){
 			case 1:
-				long a1 = 0;
-				long b1 = 0;
 				nextStep = true;
 				
 				do{
 					try {
 						System.out.println("Veuillez saisir le premier nombre\n");
-						a1 = readStrToLong(saisie);
+						a = readStrToDouble(saisie);
 						System.out.println("Veuillez saisir le deuxième nombre\n");
-						b1 = readStrToLong(saisie);
+						b = readStrToDouble(saisie);
 						
 						nextStep = true;
 					} catch (Exception e) {
@@ -40,121 +40,137 @@ public class Main {
 				}while(!nextStep);
 				
 				try {
-					System.out.println("Le résultat de l'addition de " + Long.toString(a1) + " et " + Long.toString(b1) + " vaut " 
-							+ Long.toString(calcul.addition(a1, b1)));					
+					System.out.println("Le résultat de l'addition de " + Double.toString(a) + " et " + Double.toString(b) + " vaut " 
+							+ Double.toString(calcul.addition(a, b)));					
 				} catch (Exception e) {
 					e.printStackTrace();
 					System.exit(0);
 				}
 				break;
 			case 2:
-				long a2 = 0;
-				long b2 = 0;
 				nextStep = true;
 				
 				do{
 					try {
 						System.out.println("Veuillez saisir le premier nombre");
-						a2 = readStrToLong(saisie);
+						a = readStrToDouble(saisie);
 						System.out.println("Veuillez saisir le deuxième nombre");
-						b2 = readStrToLong(saisie);
+						b = readStrToDouble(saisie);
 						
 						nextStep = true;
 					} catch (Exception e) {
 						System.out.println("Erreur de saisie, réessayez !");
 						nextStep = false;					
 					}
-				}while(nextStep);
+				}while(!nextStep);
 				
 				try {
-					System.out.println("Le résultat de la soustraction de " + Long.toString(a2) + " par " + Long.toString(b2) + " vaut " 
-						+ Long.toString(calcul.soustraction(a2, b2)));					
+					System.out.println("Le résultat de la soustraction de " + Double.toString(a) + " par " + Double.toString(b) + " vaut " 
+						+ Double.toString(calcul.soustraction(a, b)));					
 				} catch (Exception e) {
 					e.printStackTrace();
 					System.exit(0);
 				}
 				break;
 			case 3:
-				long a3 = 0;
-				long b3 = 0;
 				nextStep = true;
 				
 				do{
 					try {
 						System.out.println("Veuillez saisir le premier nombre");
-						a3 = readStrToLong(saisie);
+						a = readStrToDouble(saisie);
 						System.out.println("Veuillez saisir le deuxième nombre");
-						b3 = readStrToLong(saisie);
+						b = readStrToDouble(saisie);
 						
 						nextStep = true;			
 					} catch (Exception e) {
 						System.out.println("Erreur de saisie, réessayez !");
 						nextStep = false;		
 					}	
-				}while(nextStep);
+				}while(!nextStep);
 				
 				try {
-					System.out.println("Le résultat de la multiplication de " + Long.toString(a3) + " par " + Long.toString(b3) + " vaut " 
-							+ Long.toString(calcul.multiplication(a3, b3)));						
+					System.out.println("Le résultat de la multiplication de " + Double.toString(a) + " par " + Double.toString(b) + " vaut " 
+							+ Double.toString(calcul.multiplication(a, b)));						
 				} catch (Exception e) {
 					e.printStackTrace();
 					System.exit(0);
 				}
 				break;
 			case 4:
-				float a4 = 0.F;
-				float b4 = 0.F;
 				nextStep = true;
 				
 				do{
 					try {
 						System.out.println("Veuillez saisir le premier nombre");
-						a4 = readStrToLong(saisie);
+						a = readStrToDouble(saisie);
 						System.out.println("Veuillez saisir le deuxième nombre");
-						b4 = readStrToLong(saisie);
+						b = readStrToDouble(saisie);
 						
 						nextStep = true;
 					} catch (Exception e) {
 						System.out.println("Erreur de saisie, réessayez !");
 						nextStep = false;								
 					}
-				}while(nextStep);
+				}while(!nextStep);
 				
 				try {					
-					System.out.println("Le résultat de la division entière de " + Float.toString(a4) + " par " + Float.toString(b4) + " vaut " 
-							+ Float.toString(calcul.divisionRetourQuotient(a4, b4)));					
+					System.out.println("Le résultat de la division entière de " + Double.toString(a) + " par " + Double.toString(b) + " vaut " 
+							+ Double.toString(calcul.divisionRetourQuotient(a, b)));					
 				} catch (Exception e) {
 					e.printStackTrace();
 					System.exit(0);
 				}
 				break;
 			case 5:
-				float a5 = 0.F;
-				float b5 = 0.F;
 				nextStep = true;
 				
 				do{
 					try {
 						System.out.println("Veuillez saisir le premier nombre");
-						a5 = readStrToLong(saisie);
+						a = readStrToDouble(saisie);
 						System.out.println("Veuillez saisir le deuxième nombre");
-						b5 = readStrToLong(saisie);
+						b = readStrToDouble(saisie);
 						
 						nextStep = true;
 					} catch (Exception e) {
 						System.out.println("Erreur de saisie, réessayez !");
 						nextStep = false;	
 					}			
-				}while(nextStep);
+				}while(!nextStep);
 				
 				try {
-					System.out.println("Le reste de la division entière de " + Float.toString(a5) + " par " + Float.toString(b5) + " vaut " 
-						+ Float.toString(calcul.divisionRetourQuotient(a5, b5)));	
+					System.out.println("Le reste de la division entière de " + Double.toString(a) + " par " + Double.toString(b) + " vaut " 
+						+ Double.toString(calcul.divisionRetourQuotient(a, b)));	
 					
 				} catch (Exception e) {
 					e.printStackTrace();
 					System.exit(0);
 				}
+				break;
+			case 6:
+				nextStep = true;
+				
+				do{
+					try {
+						System.out.println("Veuillez saisir le nombre");
+						a = readStrToDouble(saisie);
+						
+						nextStep = true;
+					} catch (Exception e) {
+						System.out.println("Erreur de saisie, réessayez !");
+						nextStep = false;	
+					}			
+				}while(!nextStep);
+				
+				try {
+					System.out.println("La racine carrée de " + Double.toString(a) + " vaut " 
+						+ String.format("%.1f", calcul.racineCarree(a)));	
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.exit(0);
+				}			
 				break;
 			case 0:
 				System.out.println("Au revoir.");
@@ -193,36 +209,18 @@ public class Main {
 		
 		return choice;
 	}
-	
+		
 	/**
 	 * Return the value of the input String
 	 * 
 	 * @param input BufferedReader
-	 * @return long to convert
+	 * @return double converted
 	 * @throws Exception
 	 */
-	public static long readStrToLong(BufferedReader input) throws Exception
+	public static double readStrToDouble(BufferedReader input) throws Exception
 	{
 		try {
-			return Long.parseLong(input.readLine());				
-		} catch (NumberFormatException e) {
-			throw new Exception();
-		}catch (Exception ex){
-			throw new Exception();
-		}
-	}
-	
-	/**
-	 * Return the value of the input String
-	 * 
-	 * @param input BufferedReader
-	 * @return float converted
-	 * @throws Exception
-	 */
-	public static float readStrToFloat(BufferedReader input) throws Exception
-	{
-		try {
-			return Float.parseFloat(input.readLine());				
+			return Double.parseDouble(input.readLine());				
 		} catch (NumberFormatException e) {
 			throw new Exception();
 		}catch (Exception ex){

@@ -8,6 +8,8 @@ import org.junit.Test;
 
 public class CalculTest {
 	
+	final double DELTA = 0.00001D;
+	
 	private Calcul calcul;
 
 	@Before
@@ -25,14 +27,13 @@ public class CalculTest {
 	{
 		boolean result2 = false;
 		try {
-			long result1 = this.calcul.addition(1, 1);
+			double result1 = this.calcul.addition(1.0D, 1.0D);
 			
-			assertEquals(2, result1);
+			assertEquals(2.0D, result1, DELTA);
 			
 			// Test if an exception is thrown
-			this.calcul.addition(Long.MAX_VALUE, 1);
+			this.calcul.addition(Double.MAX_VALUE, 1.0D);
 			
-			assertEquals(result2, -1);
 		} catch (Exception e) {
 			result2 = true;
 		}
@@ -43,9 +44,9 @@ public class CalculTest {
 	public void testSoustraction() throws Exception
 	{
 		try {
-			long result1 = this.calcul.soustraction(25, 18);
+			double result1 = this.calcul.soustraction(25.5D, 18.5D);
 			
-			assertEquals(7, result1);
+			assertEquals(7.0D, result1, DELTA);
 		} catch (Exception e) {
 			
 		}
@@ -54,19 +55,36 @@ public class CalculTest {
 	@Test
 	public void testMultiplication() throws Exception
 	{
-		boolean result3 = false;
+		boolean result2 = false;
 		try {
-			long result1 = this.calcul.multiplication(25, 4);
+			double result1 = this.calcul.multiplication(25.0D, 4.0D);
 			
-			assertEquals(result1, 100);
-			
-			long result2 = this.calcul.multiplication(Long.MAX_VALUE, 25);
-			
-			assertEquals(result2, -1);
+			assertEquals(100.0D, result1, DELTA);
 			
 			// Test if an exception is thrown
-			this.calcul.multiplication(5000000, Long.MAX_VALUE);
+			this.calcul.multiplication(5000000.0D, Double.MAX_VALUE);
 			
+		} catch (Exception e) {
+			result2 = true;
+		}		
+		assertTrue(result2);
+	}
+	
+	@Test
+	public void testDivisionRetourQuotient() throws Exception
+	{
+		boolean result3 = false;
+		try {
+			double result1 = this.calcul.divisionRetourQuotient(100.0D, 25.0D);
+			
+			assertEquals(4.0D, result1, DELTA);
+			
+			double result2 = this.calcul.divisionRetourQuotient(1.0D, 4.0D);
+			
+			assertEquals(0.25D, result2, DELTA);
+			
+			// Test if an exception is thrown
+			this.calcul.divisionRetourQuotient(1.0D, 0.0D);
 		} catch (Exception e) {
 			result3 = true;
 		}		
@@ -74,44 +92,41 @@ public class CalculTest {
 	}
 	
 	@Test
-	public void testDivisionReturnQuotient() throws Exception
+	public void testDivisionRetourReste() throws Exception
 	{
 		boolean result3 = false;
 		try {
-			float result1 = this.calcul.divisionRetourQuotient(100.0F, 25.0F);
+			double result1 = this.calcul.divisionRetourReste(100.0D, 25.0D);
 			
-			assertEquals(result1, 4, 0.001);
+			assertEquals(0.0D, result1, DELTA);
 			
-			float result2 = this.calcul.divisionRetourQuotient(1.0F, 4.0F);
+			double result2 = this.calcul.divisionRetourReste(1.0D, 4.0D);
 			
-			assertEquals(result2, 0.25F, 0.0001);
-			
-			// Test if an exception is thrown
-			this.calcul.divisionRetourQuotient(1.0F, 0);
-		} catch (Exception e) {
-			result3 = true;
-		}		
-		assertTrue(result3);
-	}
-	
-	@Test
-	public void testDivisionReturnRemainder() throws Exception
-	{
-		boolean result3 = false;
-		try {
-			float result1 = this.calcul.divisionRetourReste(100.0F, 25.0F);
-			
-			assertEquals(result1, 0, 0.001);
-			
-			float result2 = this.calcul.divisionRetourReste(1.0F, 4.0F);
-			
-			assertEquals(result2, 1.0F, 0.0001);
+			assertEquals(1.0D, result2, DELTA);
 			
 			// Test if an exception is thrown
-			this.calcul.divisionRetourReste(1.0F, 0);
+			this.calcul.divisionRetourReste(1.0D, 0.0D);
 		} catch (Exception e) {
 			result3 = true;
 		}
 		assertTrue(result3);
+	}
+	
+	@Test
+	public void testRacineCarree() throws Exception
+	{
+		boolean result2 = false;
+		try {
+			double result1 = this.calcul.racineCarree(4.0D);
+			
+			assertEquals(2.0D, result1, DELTA);
+			
+			this.calcul.racineCarree(-1.0D);
+			
+		} catch (Exception e) {
+			result2 = true;
+		}
+		
+		assertTrue(result2);
 	}
 }
